@@ -1,6 +1,6 @@
 {
   "family": "ecs-demo-app",
-  "networkMode": "bridge",
+  "networkMode": "awsvpc",
   "containerDefinitions": [
     {
       "name": "myapp-container",
@@ -9,7 +9,6 @@
       "portMappings": [
         {
           "containerPort": 80,
-          "hostPort": 0,
           "protocol": "tcp"
         }
       ]
