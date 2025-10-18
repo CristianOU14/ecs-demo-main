@@ -31,7 +31,7 @@ jobs:
       - name: Build, tag, and push image to Amazon ECR
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          ECR_REPOSITORY: ecs-demo
+          ECR_REPOSITORY: iue-rep
           IMAGE_TAG: latest
         run: |
           docker build -t $ECR_REPOSITORY:$IMAGE_TAG .
@@ -45,7 +45,7 @@ jobs:
         with:
           task-definition: ecs-task-definition.json
           container-name: myapp-container
-          image: ${{ steps.login-ecr.outputs.registry }}/ecs-demo:latest
+          image: ${{ steps.login-ecr.outputs.registry }}/iue-rep:latest
 
       # 6️⃣ Desplegar en ECS
       - name: Deploy to Amazon ECS
