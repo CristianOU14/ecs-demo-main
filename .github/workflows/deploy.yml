@@ -41,7 +41,7 @@ jobs:
       # 5️⃣ Renderizar nueva definición de tarea
       - name: create new task definition
         id: taskdef
-        uses: aws-actions/amazon-ecs-render-task-definition@v1
+        uses: aws-actions/amazon-ecs-render-task-definition@v3
         with:
           task-definition: ecs-task-definition.json
           container-name: myapp-container
@@ -49,9 +49,9 @@ jobs:
 
       # 6️⃣ Desplegar en ECS
       - name: Deploy to Amazon ECS
-        uses: aws-actions/amazon-ecs-deploy-task-definition@v1
+        uses: aws-actions/amazon-ecs-deploy-task-definition@v3
         with:
           task-definition: ${{ steps.taskdef.outputs.task-definition }}
-          service: ecs-demo-app-serviceIUE
+          service: ecs-demo-service
           cluster: ecs-demo-cluster
           wait-for-service-stability: true
