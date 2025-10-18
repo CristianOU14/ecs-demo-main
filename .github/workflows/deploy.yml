@@ -53,5 +53,5 @@ jobs:
         with:
           task-definition: ${{ steps.taskdef.outputs.task-definition }}
           service: ecs-demo-app-serviceIUE
-          cluster: supportive-fish-qa9pi1
+          cluster: ecs-demo-cluster
           wait-for-service-stability: true
