@@ -1,6 +1,6 @@
 {
   "family": "ecs-demo-app",
-  "networkMode": "awsvpc",
+  "networkMode": "bridge",
   "containerDefinitions": [
     {
       "name": "myapp-container",
@@ -17,5 +17,5 @@
   ],
   "requiresCompatibilities": ["EC2"],
   "cpu": "256",
-  "memory": "512"
+  "memory": "128"
 }
