@@ -1,6 +1,6 @@
 {
   "family": "ecs-demo-app",
-  "networkMode": "bridge",
+  "networkMode": "awsvpc",
   "containerDefinitions": [
     {
       "name": "myapp-container",
@@ -16,6 +16,7 @@
     }
   ],
   "requiresCompatibilities": ["EC2"],
+  "executionRoleArn": "arn:aws:iam::756811050716:role/ecs-task-execution-role",
   "cpu": "256",
   "memory": "128"
 }
