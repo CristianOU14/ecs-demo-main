@@ -1,6 +1,13 @@
 {
   "family": "ecs-demo-app",
-  "networkMode": "brige",
+  "networkMode": "awsvpc",
+  "requiresCompatibilities": [
+    "FARGATE"
+  ],
+  "cpu": "256",
+  "memory": "512",
+  "executionRoleArn": "arn:aws:iam::756811050716:role/ecsTaskExecutionRole",
+  "taskRoleArn": "arn:aws:iam::756811050716:role/ecsTaskExecutionRole",
   "containerDefinitions": [
     {
       "name": "myapp-container",
@@ -12,10 +19,16 @@
           "hostPort": 0,
           "protocol": "tcp"
         }
-      ]
+      ],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/ecs-demo-app",
+          "awslogs-region": "us-east-2",
+          "awslogs-stream-prefix": "ecs",
+          "awslogs-create-group": "true"
+        }
+      }
     }
-  ],
-  "requiresCompatibilities": ["EC2"],
-  "cpu": "256",
-  "memory": "128"
+  ]
 }
